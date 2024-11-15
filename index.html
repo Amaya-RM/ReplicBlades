@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Compra de replicas de alta calidad, inspirados en los cuchillos de CSGO">
+    <!--    Aunque "keywords" esta algo obsoleto, sigue funcionando     -->
+    <meta name="keywords" content="csgo, csgo2, cuchillo, cuchillos, calidad, replica">
+    <meta name="author" content="Amaya Rodríguez Martín - AmayaRM">
+    <title>ReplicBlades - Solo para coleccionistas</title>
+    <link rel="shortcut icon" href="./img/favicon_csgo.png" type="image/x-icon">
+    <link rel="stylesheet" href="./css/normalize.css">
+    <link rel="stylesheet" href="./css/styles.css">
+    <!--    GoogleFont  -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Antic+Slab&display=swap" rel="stylesheet">
+</head>
+
+<body>
+<!--    Cabecera    -->
+    <header>
+        <div class="logo">
+            <a href="./index.html"><img src="./img/logo_knife-csgo.png" alt="ReplicBlades - Solo para coleccionistas"></a>
+        </div>
+        <div class="header-title">
+            <h1>ReplicBlades</h1>
+            <p>Tus mejores réplicas, de alta calidad.</p>
+        </div>
+        <div class="menu-toggle" id="mobile-menu">
+            <div class="bar"></div>
+            <div class="bar"></div>
+            <div class="bar"></div>
+        </div>
+            <!-- Menu Toggle for Mobile -->
+    <div class="menu-toggle" id="mobile-menu">
+        <div class="bar"></div>
+        <div class="bar"></div>
+        <div class="bar"></div>
+    </div>
+        <nav class="nav-list">
+            <ul>
+                <li><a href="#home">Inicio</a></li>
+                <li><a href="#about_us">Conócenos</a></li>
+                <li><a href="#make">Elaboraciones</a></li>
+                <li><a href="#contact">Contacto</a></li>
+                <li><a href="#faq">FAQ</a></li>
+            </ul>
+        </nav>
+    </header>
+<!--    Hero    -->
+    <section class="hero" id="hero">
+        <video class="video-background" autoplay muted loop>
+            <source src="./media/CS2 Knife Animations All Knives.mp4" type="video/mp4">
+            Tu navegador no soporta videos HTML5.
+        </video>
+        <div class="hero-content">
+            <h2>Explora nuestra biblioteca de réplicas.</h2>
+            <p>Reserva la tuya antes de que se agoten!</p>
+            <!--    Usamos "a" en vez de "button" porque la intención es redirigir, no hacer una acción.    -->
+            <a href="#make" class="button">Explorar las réplicas</a>
+        </div>
+    </section>
+<!--    Formulario  -->
+    <section id="order">
+        <h2>Reserva tu réplica ahora</h2>
+        <p>Aprovecha la oportunidad de ser uno de los primeros en tener una réplica única.</p>
+        <form id="order-form">
+            <div class="form-group">
+                <label for="date">Fecha de nacimiento:</label>
+                <input type="date" name="date" id="date">
+            </div>
+            <div class="form-group">
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required placeholder="Ingresa tu email">
+            </div>
+            <label for="knife">Selecciona tu réplica de cuchillo:</label>
+            <select id="knife" name="knife" required>
+                <option value="">-- Elige una opción --</option>
+                <option value="karambit">Karambit</option>
+                <option value="butterfly">Cuchillo Mariposa</option>
+                <option value="m9">Bayoneta M9</option>
+                <option value="bayonet">Bayoneta</option>
+                <option value="bowie">Bowei</option>
+                <option value="classic">Classic</option>
+                <option value="falchion">Falchion</option>
+                <option value="flip">Flip</option>
+                <option value="gut">Gut</option>
+                <option value="huntsman">Huntsman</option>
+                <option value="kukri">Kukri</option>
+                <option value="navaja">Navaja</option>
+                <option value="nomad">Nomad</option>
+                <option value="paracord">Paracord</option>
+                <option value="shadow_dagger">Shadow Daggers</option>
+                <option value="skeleton">Skeleton</option>
+                <option value="stiletto">Stiletto</option>
+                <option value="survival">Survival Knife</option>
+                <option value="talon">Talon Knife</option>
+                <option value="ursus">Ursus Knife</option>
+            </select>
+            <!-- Contenedor para mostrar la imagen //   NO TOCAR    //-->
+            <div id="knife-image-container">
+                <img id="knife-image" src="./img/Karambit.webp" alt="Imagen por defecto de Karambit" />
+            </div>
+
+            <button type="submit" id="submit-button">Reservar</button>
+            <button type="button" id="discount-button" onclick="toggleDiscountText()">¡Obtén un 15% de descuento!</button>
+
+            <!--    Campos ocultos inicialmente -->
+            <div id="additional-fields" style="display: none;">
+                <div class="form-group">
+                    <label for="first-name">Nombre:</label>
+                    <input type="text" id="first-name" name="first-name" placeholder="Ingresa tu nombre">
+                </div>
+                <div class="form-group">
+                    <label for="last-name">Apellido:</label>
+                    <input type="text" id="last-name" name="last-name" placeholder="Ingresa tu apellido">
+                </div>
+                <div class="form-group">
+                    <label for="phone">Número de teléfono:</label>
+                    <input type="tel" id="phone" name="phone" placeholder="Ingresa tu número de teléfono">
+                </div>
+                <div class="form-group">
+                    <label for="postal-code">Código postal:</label>
+                    <input type="text" id="postal-code" name="postal-code" placeholder="Ingresa tu código postal">
+                </div>
+
+                <button type="button" id="reserve-button" style="display: none;" onclick="validateForm()">Reservar con
+                    descuento</button>
+            </div>
+        </form>
+    </section>
+
+<!--    Galeria de articulos    -->
+    <section id="make">
+        <h2>Nuestras Réplicas</h2>
+        <p>Descubre la mas alta calidad y el increible detalle nunca antes visto.</p>
+        <div class="replicas-container">
+            <div class="replica-card">
+                <img src="./img/Bayonet.webp" alt=" Cuchillo Bayonet">
+                <h3>Bayonet</h3>
+                <p>
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloribus aliquid odio assumenda fugit amet rem, porro recusandae asperiores fuga aliquam accusantium natus. Exercitationem, aperiam culpa.
+                </p>
+                <a href="#order" class="button">Reservar</a>
+            </div>
+            <!-- Repite esta tarjeta con diferentes datos -->
+            <div class="replica-card">
+                <img src="./img/Bowie.webp" alt="Cuchillo Bowei">
+                <h3>Bowie</h3>
+                <p>
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Error ipsa ipsam esse, qui nam reprehenderit ea expedita voluptatibus odit? Porro voluptatem vero fugiat laudantium repellat.
+                </p>
+                <a href="#order" class="button">Reservar</a>
+            </div>
+            <div class="replica-card">
+                <img src="./img/Butterfly.webp" alt="Cuchillo Butterfly">
+                <h3>Butterfly</h3>
+                <p>
+                    Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ab molestiae rerum, cupiditate odio harum molestias libero atque doloribus voluptatem qui nemo mollitia quae eligendi modi!
+                </p>
+                <a href="#order" class="button">Reservar</a>
+            </div>
+            <div class="replica-card">
+                <img src="./img/Classic.webp" alt="Cuchillo Classic">
+                <h3>Classic</h3>
+                <p>
+                    Lorem ipsum dolor sit, amet consectetur adipisicing elit. Fugiat reiciendis labore id cupiditate quos? Et sit incidunt adipisci a pariatur sint laboriosam, labore ratione nostrum.
+                </p>
+                <a href="#order" class="button">Reservar</a>
+            </div>
+            <div class="replica-card">
+                <img src="./img/Falchion.webp" alt="Cuchillo Falchion">
+                <h3>Falchion</h3>
+                <p>
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam, exercitationem! Eius repudiandae beatae sunt tenetur ex nihil porro delectus unde fuga. Culpa, sapiente beatae. Id.
+                </p>
+                <a href="#order" class="button">Reservar</a>
+            </div>
+            <div class="replica-card">
+                <img src="./img/Flip.webp" alt="Cuchillo Flip">
+                <h3>Flip</h3>
+                <p>
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestiae, labore fuga velit unde quod voluptatum nesciunt nulla, fugiat officia perferendis provident voluptas. Omnis, eveniet asperiores!
+                </p>
+                <a href="#order" class="button">Reservar</a>
+            </div>
+            <div class="replica-card">
+                <img src="./img/Gut.webp" alt="Cuchillo Gut">
+                <h3>Gut</h3>
+                <p>
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatum rem debitis, magnam delectus impedit repellendus harum sequi deleniti explicabo nostrum saepe inventore id totam atque!
+                </p>
+                <a href="#order" class="button">Reservar</a>
+            </div>
+            <div class="replica-card">
+                <img src="./img/Huntsman.webp" alt="Cuchillo Huntsman">
+                <h3>Huntsman</h3>
+                <p>
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Sed, nostrum! Quibusdam nobis, aliquid ducimus non autem numquam. Assumenda, dolore numquam! Tempore quos dolore dolorem facere.
+                </p>
+                <a href="#order" class="button">Reservar</a>
+            </div>
+            <div class="replica-card">
+                <img src="./img/Karambit.webp" alt="Cuchillo Karambit">
+                <h3>Karambit</h3>
+                <p>
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Enim molestias vitae porro consequatur magnam repellat, laudantium quibusdam sequi quis voluptate maiores cum. Voluptatum, quasi dolorem.
+                </p>
+                <a href="#order" class="button">Reservar</a>
+            </div>
+            <div class="replica-card">
+                <img src="./img/Kukri.webp" alt="Cuchillo Kukri">
+                <h3>Kukri</h3>
+                <p>
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Deserunt velit numquam assumenda quas doloribus. Tempore facilis possimus esse aliquam quo dicta magni veritatis, culpa molestias.
+                </p>
+                <a href="#order" class="button">Reservar</a>
+            </div>
+            <div class="replica-card">
+                <img src="./img/M9 Bayonet.webp" alt="Cuchillo M9 Bayonet">
+                <h3>M9 Bayonet</h3>
+                <p>
+                    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Distinctio, nihil, omnis ea nostrum amet, magni voluptatibus aut magnam reprehenderit nesciunt eveniet molestiae obcaecati officia eos?
+                </p>
+                <a href="#order" class="button">Reservar</a>
+            </div>
+            <div class="replica-card">
+                <img src="./img/Navaja.webp" alt="Corbata colombiana">
+                <h3>Navaja</h3>
+                <p>
+                    Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ratione nesciunt ipsum alias nihil aliquam repellat corrupti, ex dicta id, eaque quisquam. Magni iure aspernatur corporis.
+                </p>
+                <a href="#order" class="button">Reservar</a>
+            </div>
+            <div class="replica-card">
+                <img src="./img/Nomad.webp" alt="Cuchillo Nomad">
+                <h3>Nomad</h3>
+                <p>
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Omnis saepe pariatur, quibusdam, accusantium exercitationem praesentium fugit sapiente iusto totam quae, asperiores recusandae quaerat quos vero.
+                </p>
+                <a href="#order" class="button">Reservar</a>
+            </div>
+            <div class="replica-card">
+                <img src="./img/Paracord.webp" alt="Cuchillo Paracord">
+                <h3>Paracord</h3>
+                <p>
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Vero atque quisquam necessitatibus veniam, consectetur sequi quae assumenda accusamus velit repudiandae ab! Quis ut asperiores voluptates.
+                </p>
+                <a href="#order" class="button">Reservar</a>
+            </div>
+            <div class="replica-card">
+                <img src="./img/Shadow Daggers.webp" alt="Cuchillo Shadow Daggers">
+                <h3>Shadow Daggers</h3>
+                <p>
+                    Lorem ipsum, dolor sit amet consectetur adipisicing elit. Perspiciatis illo nostrum eaque, dignissimos possimus minima atque vel consectetur aliquam sunt, sequi voluptas pariatur non laboriosam.
+                </p>
+                <a href="#order" class="button">Reservar</a>
+            </div>
+            <div class="replica-card">
+                <img src="./img/Skeleton.webp" alt="Cuchillo Skeleton">
+                <h3>Skeleton</h3>
+                <p>
+                    Lorem ipsum dolor sit, amet consectetur adipisicing elit. Vel voluptatibus neque temporibus, reprehenderit iusto repellat labore non, molestiae expedita eos autem aliquam necessitatibus, iure commodi.
+                </p>
+                <a href="#order" class="button">Reservar</a>
+            </div>
+            <div class="replica-card">
+                <img src="./img/Stiletto.webp" alt="Cuchillo Stiletto">
+                <h3>Stiletto</h3>
+                <p>
+                    Lorem ipsum dolor sit, amet consectetur adipisicing elit. Voluptatum obcaecati blanditiis nostrum aliquam placeat quaerat sunt? Quibusdam numquam aspernatur obcaecati dolor odio laudantium dolore! Corrupti!
+                </p>
+                <a href="#order" class="button">Reservar</a>
+            </div>
+            <div class="replica-card">
+                <img src="./img/Survival Knife.webp" alt="Cuchillo de supervivencia">
+                <h3>Knife</h3>
+                <p>
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam eos dolorum hic id architecto iste numquam non, corrupti commodi iusto modi doloribus officiis quaerat quod.
+                </p>
+                <a href="#order" class="button">Reservar</a>
+            </div>
+            <div class="replica-card">
+                <img src="./img/Talon Knife.webp" alt="Cuchillo Talon">
+                <h3>Talon</h3>
+                <p>
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Doloremque quis sed libero distinctio maiores incidunt, quas consequatur mollitia assumenda unde eligendi harum tempore ipsa similique.
+                </p>
+                <a href="#order" class="button">Reservar</a>
+            </div>
+            <div class="replica-card">
+                <img src="./img/Ursus.webp" alt="Cuchillo Ursus">
+                <h3>Ursus</h3>
+                <p>
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Itaque enim totam vel adipisci officia at unde ut, perspiciatis sequi cumque quia, quod laboriosam illo excepturi.
+                </p>
+                <a href="#order" class="button">Reservar</a>
+            </div>
+            <!--
+                Esta sección es escalable y el CSS esta hecho para que cada nuevo elemento se integre a la perfección.
+            -->
+        </div>
+    </section>
+<!--    Sección FAQ (no fuck)   -->
+    <section id="faq">
+        <h2>Preguntas Frecuentes</h2>
+        <div class="faq-item">
+            <h3 class="faq-question">¿Cómo puedo reservar una réplica?</h3>
+            <p class="faq-answer">Para reservar una réplica, haz clic <a href="#order">AQUI</a>.</p>
+        </div>
+        <div class="faq-item">
+            <h3 class="faq-question">¿Ofrecen envíos internacionales?</h3>
+            <p class="faq-answer">Sí, realizamos envíos a varios países. Consulta nuestra sección de envío para más
+                detalles.</p>
+        </div>
+        <div class="faq-item">
+            <h3 class="faq-question">¿Cuál es el tiempo de entrega?</h3>
+            <p class="faq-answer">El tiempo de entrega varía entre 13 y 19 días hábiles, dependiendo de la ubicación.
+            </p>
+        </div>
+    </section>
+<!--    Pie de pagina   -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-info">
+                <p>&copy; 2024 ReplicBlades. Todos los derechos reservados.</p>
+                <p>Síguenos en:</p>
+                <div class="footer-social">
+                    <a href="#">Facebook</a>
+                    <a href="#">Instagram</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+<!--    Enlaces a JS    -->
+    <script src="./js/form.js"></script>
+    <script src="./js/change_image.js"></script>
+    <script src="./js/menu.js"></script>
+    <script src="./js/age.js"></script>
+    <script src="./js/nav_mb.js"></script>
+
+</body>
+</html>

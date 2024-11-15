@@ -1,0 +1,1 @@
+Soy consciente de que los arhivos pesan mucho más de lo debido, pero es un proyecto de clase. Mi objetivo no fue aliviar el peso de la propia pagina.
